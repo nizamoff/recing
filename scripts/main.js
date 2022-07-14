@@ -6,20 +6,17 @@ const mainScore = document.querySelector(".score");
 const tryAgainBtn = document.querySelector(".try-again-btn");
 const gameOverModal = document.querySelector(".game-over-modal");
 const highScore = document.querySelector(".high-score")
-const block = document.getElementById("block");
-const character = document.getElementById("character");
+const block = document.querySelector(".block");
+const character = document.querySelector(".character");
 const finalScore = document.querySelector(".final-score");
 
 let counter = 0;
 mainScore.textContent = counter;
 highScore.textContent = localStorage.getItem('highScore') || 0;
 
-
 window.addEventListener("load", function () {
   mainSound.value = 60;
 });
-
-
 
 document.addEventListener("keydown", (event) => {
   if (event.key === "ArrowLeft") {
@@ -41,6 +38,7 @@ function moveLeft() {
   }
   mainSound.play();
 }
+
 function moveRight() {
   let left = parseInt(
     window.getComputedStyle(character).getPropertyValue("left")
@@ -52,28 +50,33 @@ function moveRight() {
   mainSound.play();
 }
 
+document.querySelector(".right").addEventListener("touchstart", moveRight);
+document.querySelector(".left").addEventListener("touchstart", moveLeft);
+
 
 block.addEventListener("animationiteration", () => {
-  var random = Math.floor(Math.random() * 3);
+  let random = Math.floor(Math.random() * 3);
   left = random * 100;
   block.style.left = left + "px";
   mainScore.textContent = counter++ + 1;
-  
   if(parseInt(mainScore.textContent) > parseInt(highScore.textContent)) {
     highScore.textContent = parseInt(mainScore.textContent)
   }
-  
   if (counter >= 15) {
     block.style.animationDuration = ".9s";
     block.style.animationDelay = "1s";
   } if (counter >= 30) {
-    block.style.animationDuration = ".7s";
-    block.style.animationDelay = "1s";
+    block.style.animationDuration = ".8s";
+    block.style.animationDelay = "2s";
   } if (counter >= 50) {
+    block.style.animationDuration = ".7s";
+    block.style.animationDelay = "3s";
+  } if (counter >= 70) {
     block.style.animationDuration = ".6s";
-    block.style.animationDelay = "1s";
-  } if (counter >= 80) {
+    block.style.animationDelay = "4s";
+  } if (counter >= 90) {
     block.style.animationDuration = ".5s";
+    block.style.animationDelay = "5s";
   }
     
 });
@@ -104,7 +107,6 @@ setInterval(function () {
   }
 }, 1);
 
-
 function paused() {
   block.style.animationPlayState = "paused";
   mainSound.pause();
@@ -118,8 +120,6 @@ function played() {
   playBtn.classList.remove("offline");
 }
 
-document.getElementById("right").addEventListener("touchstart", moveRight);
-document.getElementById("left").addEventListener("touchstart", moveLeft);
 
 tryAgainBtn.addEventListener("click", function () {
   location.reload();
