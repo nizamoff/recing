@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./images/LOGO.png" type="image/x-icon">
+    <title>Racing</title>
+    <link rel="stylesheet" href="./styles/main.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <img src="./images/LOGO.png" alt="" width="100">
+            <div>
+                <span class="titles">score: <span class="score"></span></span>
+                <span class="titles">high score: <span class="high-score"></span></span>
+                
+            </div>
+            <div>
+                <button onclick="paused()" class="pause-btn">pause</button>
+                <button onclick="played()" class="play-btn">play</button>
+            </div>
+        </div>
+    </header>
+    <div class="water">
+    </div>
+    <div class="tree">
+        <img src="./images/tree.png" alt="" width="100">
+        <img src="./images/tree.png" alt="" width="100">
+        <img src="./images/tree.png" alt="" width="100">
+        <img src="./images/tree.png" alt="" width="100">
+        <img src="./images/tree.png" alt="" width="100">
+        <img src="./images/tree.png" alt="" width="100">
+        <img src="./images/tree.png" alt="" width="100">
+        <img src="./images/tree.png" alt="" width="100">
+        <img src="./images/tree.png" alt="" width="100">
+        <img src="./images/tree.png" alt="" width="100">
+        <img src="./images/tree.png" alt="" width="100">
+        <img src="./images/tree.png" alt="" width="100">
+        <img src="./images/tree.png" alt="" width="100">
+        <img src="./images/tree.png" alt="" width="100">
+        <img src="./images/tree.png" alt="" width="100">
+        <img src="./images/tree.png" alt="" width="100">
+        <img src="./images/tree.png" alt="" width="100">
+        <img src="./images/tree.png" alt="" width="100">
+        <img src="./images/tree.png" alt="" width="100">
+        <img src="./images/tree.png" alt="" width="100">
+        <img src="./images/tree.png" alt="" width="100">
+
+    </div>
+    <div id="game">
+        <div id="left"></div>
+        <div id="right"></div>
+        <div id="block" class="finished">
+            <img src="./images/block.png" alt="" width="100">
+        </div>
+        <div id="character">
+            <img src="./images/character.png" alt="" width="100">
+        </div>
+        <!-- <div id="white"></div> -->
+    </div>
+    <div class="tree">
+        <img src="./images/tree.png" alt="" width="100">
+        <img src="./images/tree.png" alt="" width="100">
+        <img src="./images/tree.png" alt="" width="100">
+        <img src="./images/tree.png" alt="" width="100">
+        <img src="./images/tree.png" alt="" width="100">
+        <img src="./images/tree.png" alt="" width="100">
+        <img src="./images/tree.png" alt="" width="100">
+        <img src="./images/tree.png" alt="" width="100">
+        <img src="./images/tree.png" alt="" width="100">
+        <img src="./images/tree.png" alt="" width="100">
+        <img src="./images/tree.png" alt="" width="100">
+        <img src="./images/tree.png" alt="" width="100">
+        <img src="./images/tree.png" alt="" width="100">
+        <img src="./images/tree.png" alt="" width="100">
+    </div>
+    <div class="water2">
+    </div>
+    <div class="game-over-modal">
+        <div class="modal-content">
+            <h2 class="game-over-title">Game over!</h2>
+            <button class="try-again-btn">try again</button>
+            <span class="final-score"></span>
+        </div>
+    </div>
+    <span class="disclaimer">this game is adapted only for laptop and desktop screens :(</span>
+    <audio src="./sounds/Game_Over_Sound_Pj0UBDv8WZ4_140.mp3" class="game-over-sound"></audio>
+    <audio src="./sounds/what_is_love_8_bit_CT8t_1JXWn8_140.mp3" class="main-sound"></audio>
+    <script src="./scripts/main.js"></script>
+</body>
+
+</html>

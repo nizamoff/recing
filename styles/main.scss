@@ -1,0 +1,399 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(29, 146, 11);
+    user-select: none;
+    font-family: monospace;
+    color: #fff;
+}
+
+.container {
+    width: 450px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header {
+    display: flex;
+    padding: 10px 0;
+    background: green;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    box-shadow: 0 0 20px rgb(0, 56, 0);
+    border-bottom: 1px solid #fff;
+    @media screen and(max-width: 768px) {
+        display: none;
+    }
+
+}
+
+.titles {
+    font-size: 14px;
+    display: block;
+    padding: 5px 10px;
+}
+
+.score {
+    font-size: 16px;
+}
+
+.pause-btn,
+.play-btn {
+    display: block;
+    padding: 5px 10px;
+    font-size: 14px;
+    font-family: monospace;
+    color: #fff;
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.play-btn {
+    &.offline {
+        animation: playBtn linear infinite .5s;
+
+        @keyframes playBtn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+.water {
+    position: absolute;
+    border: 1px solid #fff;
+    top: 0;
+    left: 0;
+    z-index: 20;
+    display: block;
+    width: 500px;
+    background-size: contain;
+    background-image: url('../images/wayer.jpg');
+    height: 100vh;
+    animation: water linear infinite .2s;
+
+    @media screen and(max-width: 1516px) {
+        width: 300px;
+    }
+
+    @media screen and(max-width: 1124px) {
+        width: 150px;
+    }
+
+    @media screen and(max-width: 768px) {
+        display: none;
+    }
+
+    @keyframes water {
+        from {
+            transform: translateY(0);
+        }
+
+        to {
+            transform: translateY(100px);
+        }
+    }
+}
+
+.water2 {
+    position: absolute;
+    border: 1px solid #fff;
+    top: 0;
+    right: 0;
+    z-index: 20;
+    display: block;
+    width: 500px;
+    background-size: contain;
+    background-image: url('../images/wayer.jpg');
+    height: 100vh;
+    animation: water linear infinite .2s;
+
+    @media screen and(max-width: 1516px) {
+        width: 300px;
+    }
+
+    @media screen and(max-width: 1124px) {
+        width: 150px;
+    }
+
+    @media screen and(max-width: 768px) {
+        display: none;
+    }
+
+    @keyframes water {
+        from {
+            transform: translateY(0);
+        }
+
+        to {
+            transform: translateY(100px);
+        }
+    }
+}
+
+.tree {
+    animation: tree linear infinite 0.2s;
+
+    @media screen and(max-width: 768px) {
+        display: none;
+    }
+
+    @keyframes tree {
+        0% {
+            transform: translateY(0%);
+        }
+
+        100% {
+            transform: translateY(40%);
+        }
+    }
+
+    img {
+        display: block;
+
+        &:nth-child(odd) {
+            transform: rotate(180deg);
+        }
+    }
+}
+
+
+
+
+
+#game {
+    width: 300px;
+    height: 100vh;
+    border: 1px solid white;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-color: #4b4b50;
+    position: relative;
+
+    @media screen and(max-width: 768px) {
+        display: none;
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        width: 0px;
+        height: 110vh;
+        top: 0;
+        left: 155px;
+        z-index: 1;
+        background: transparent;
+        border-left: 3px dashed white;
+        animation: line linear 0.5s infinite;
+
+        @keyframes line {
+            from {
+                top: -50px;
+            }
+
+            to {
+                top: 0;
+            }
+        }
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        width: 0px;
+        height: 110vh;
+        top: 0;
+        left: 145px;
+        z-index: 1;
+        background: transparent;
+        border-left: 3px dashed white;
+        animation: line linear 0.5s infinite;
+    }
+}
+
+#character {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    top: 530px;
+    left: 100px;
+    z-index: 10;
+    animation: character linear 0.5s;
+
+    &.active {
+        transform: rotate(-15deg);
+        transition: all 0.5s;
+
+        &::before {
+            content: '';
+            background-image: url('../images/bomb.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            width: 150px;
+            height: 150px;
+            position: absolute;
+        }
+
+    }
+
+    @keyframes character {
+        from {
+            top: 700px;
+        }
+
+        to {
+            top: 530px;
+        }
+    }
+}
+
+#white {
+    top: 500px;
+    z-index: 100;
+    position: absolute;
+    width: 300px;
+    height: 130px;
+    background-color: white;
+}
+
+#block {
+    width: 100px;
+    height: 100px;
+    top: -150px;
+    position: relative;
+    animation: slide 1s infinite linear;
+    animation-delay: 5s;
+
+    z-index: 10;
+
+    &.active {
+        transform: rotate(15deg);
+        transition: all 0.5s;
+
+        &::before {
+            content: '';
+            background-image: url('../images/bomb.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            width: 150px;
+            height: 150px;
+            position: absolute;
+            z-index: 11;
+        }
+
+    }
+
+}
+
+@keyframes slide {
+    0% {
+        top: -100px;
+    }
+
+    100% {
+        top: 100%;
+    }
+}
+
+#left,
+#right {
+    width: 50%;
+    position: absolute;
+    height: 500px;
+}
+
+#right {
+    left: 50%;
+}
+
+.game-over-modal {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.773);
+    z-index: 100;
+
+    &.active {
+        display: flex;
+        animation: modalAnimation linear 1.2s;
+
+        @keyframes modalAnimation {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    }
+
+    .modal-content {
+        padding: 35px;
+        box-sizing: border-box;
+        width: 400px;
+        height: 300px;
+        background-color: green;
+        border: 1px solid #fff;
+        border-radius: 5px;
+
+        h2 {
+            font-size: 48px;
+            text-align: center;
+            margin-bottom: 35px;
+            margin-top: 35px;
+        }
+
+        button {
+            display: block;
+            width: 120px;
+            margin: 0 auto;
+            font-family: monospace;
+            font-size: 18px;
+            background: rgb(52, 169, 52);
+            color: #fff;
+            border: 1px solid #fff;
+        }
+        span {
+            display: block;
+            text-align: center;
+            font-size: 14px;
+            margin-top: 15px;
+        }
+    }
+}
+
+.disclaimer {
+    text-align: center;
+    padding: 0 20px;
+    font-size: 18px;
+    display: block;
+    @media screen and(min-width: 768px) {
+        display: none;
+    }
+}

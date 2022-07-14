@@ -1,0 +1,522 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #1d920b;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  font-family: monospace;
+  color: #fff;
+}
+
+.container {
+  width: 450px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 10px 0;
+  background: green;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  -webkit-box-shadow: 0 0 20px #003800;
+          box-shadow: 0 0 20px #003800;
+  border-bottom: 1px solid #fff;
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    display: none;
+  }
+}
+
+.titles {
+  font-size: 14px;
+  display: block;
+  padding: 5px 10px;
+}
+
+.score {
+  font-size: 16px;
+}
+
+.pause-btn,
+.play-btn {
+  display: block;
+  padding: 5px 10px;
+  font-size: 14px;
+  font-family: monospace;
+  color: #fff;
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.play-btn.offline {
+  -webkit-animation: playBtn linear infinite .5s;
+          animation: playBtn linear infinite .5s;
+}
+
+@-webkit-keyframes playBtn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes playBtn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.water {
+  position: absolute;
+  border: 1px solid #fff;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  display: block;
+  width: 500px;
+  background-size: contain;
+  background-image: url("../images/wayer.jpg");
+  height: 100vh;
+  -webkit-animation: water linear infinite .2s;
+          animation: water linear infinite .2s;
+}
+
+@media screen and (max-width: 1516px) {
+  .water {
+    width: 300px;
+  }
+}
+
+@media screen and (max-width: 1124px) {
+  .water {
+    width: 150px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .water {
+    display: none;
+  }
+}
+
+@-webkit-keyframes water {
+  from {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  to {
+    -webkit-transform: translateY(100px);
+            transform: translateY(100px);
+  }
+}
+
+@keyframes water {
+  from {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  to {
+    -webkit-transform: translateY(100px);
+            transform: translateY(100px);
+  }
+}
+
+.water2 {
+  position: absolute;
+  border: 1px solid #fff;
+  top: 0;
+  right: 0;
+  z-index: 20;
+  display: block;
+  width: 500px;
+  background-size: contain;
+  background-image: url("../images/wayer.jpg");
+  height: 100vh;
+  -webkit-animation: water linear infinite .2s;
+          animation: water linear infinite .2s;
+}
+
+@media screen and (max-width: 1516px) {
+  .water2 {
+    width: 300px;
+  }
+}
+
+@media screen and (max-width: 1124px) {
+  .water2 {
+    width: 150px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .water2 {
+    display: none;
+  }
+}
+
+@keyframes water {
+  from {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  to {
+    -webkit-transform: translateY(100px);
+            transform: translateY(100px);
+  }
+}
+
+.tree {
+  -webkit-animation: tree linear infinite 0.2s;
+          animation: tree linear infinite 0.2s;
+}
+
+@media screen and (max-width: 768px) {
+  .tree {
+    display: none;
+  }
+}
+
+@-webkit-keyframes tree {
+  0% {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+  100% {
+    -webkit-transform: translateY(40%);
+            transform: translateY(40%);
+  }
+}
+
+@keyframes tree {
+  0% {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+  100% {
+    -webkit-transform: translateY(40%);
+            transform: translateY(40%);
+  }
+}
+
+.tree img {
+  display: block;
+}
+
+.tree img:nth-child(odd) {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+#game {
+  width: 300px;
+  height: 100vh;
+  border: 1px solid white;
+  border-radius: 5px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: #4b4b50;
+  position: relative;
+}
+
+@media screen and (max-width: 768px) {
+  #game {
+    display: none;
+  }
+}
+
+#game::before {
+  content: '';
+  position: absolute;
+  width: 0px;
+  height: 110vh;
+  top: 0;
+  left: 155px;
+  z-index: 1;
+  background: transparent;
+  border-left: 3px dashed white;
+  -webkit-animation: line linear 0.5s infinite;
+          animation: line linear 0.5s infinite;
+}
+
+@-webkit-keyframes line {
+  from {
+    top: -50px;
+  }
+  to {
+    top: 0;
+  }
+}
+
+@keyframes line {
+  from {
+    top: -50px;
+  }
+  to {
+    top: 0;
+  }
+}
+
+#game::after {
+  content: '';
+  position: absolute;
+  width: 0px;
+  height: 110vh;
+  top: 0;
+  left: 145px;
+  z-index: 1;
+  background: transparent;
+  border-left: 3px dashed white;
+  -webkit-animation: line linear 0.5s infinite;
+          animation: line linear 0.5s infinite;
+}
+
+#character {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  top: 530px;
+  left: 100px;
+  z-index: 10;
+  -webkit-animation: character linear 0.5s;
+          animation: character linear 0.5s;
+}
+
+#character.active {
+  -webkit-transform: rotate(-15deg);
+          transform: rotate(-15deg);
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+#character.active::before {
+  content: '';
+  background-image: url("../images/bomb.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 150px;
+  height: 150px;
+  position: absolute;
+}
+
+@-webkit-keyframes character {
+  from {
+    top: 700px;
+  }
+  to {
+    top: 530px;
+  }
+}
+
+@keyframes character {
+  from {
+    top: 700px;
+  }
+  to {
+    top: 530px;
+  }
+}
+
+#white {
+  top: 500px;
+  z-index: 100;
+  position: absolute;
+  width: 300px;
+  height: 130px;
+  background-color: white;
+}
+
+#block {
+  width: 100px;
+  height: 100px;
+  top: -150px;
+  position: relative;
+  -webkit-animation: slide 1s infinite linear;
+          animation: slide 1s infinite linear;
+  -webkit-animation-delay: 5s;
+          animation-delay: 5s;
+  z-index: 10;
+}
+
+#block.active {
+  -webkit-transform: rotate(15deg);
+          transform: rotate(15deg);
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+#block.active::before {
+  content: '';
+  background-image: url("../images/bomb.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  z-index: 11;
+}
+
+@-webkit-keyframes slide {
+  0% {
+    top: -100px;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
+@keyframes slide {
+  0% {
+    top: -100px;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
+#left,
+#right {
+  width: 50%;
+  position: absolute;
+  height: 500px;
+}
+
+#right {
+  left: 50%;
+}
+
+.game-over-modal {
+  display: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.773);
+  z-index: 100;
+}
+
+.game-over-modal.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-animation: modalAnimation linear 1.2s;
+          animation: modalAnimation linear 1.2s;
+}
+
+@-webkit-keyframes modalAnimation {
+  from {
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes modalAnimation {
+  from {
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.game-over-modal .modal-content {
+  padding: 35px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 400px;
+  height: 300px;
+  background-color: green;
+  border: 1px solid #fff;
+  border-radius: 5px;
+}
+
+.game-over-modal .modal-content h2 {
+  font-size: 48px;
+  text-align: center;
+  margin-bottom: 35px;
+  margin-top: 35px;
+}
+
+.game-over-modal .modal-content button {
+  display: block;
+  width: 120px;
+  margin: 0 auto;
+  font-family: monospace;
+  font-size: 18px;
+  background: #34a934;
+  color: #fff;
+  border: 1px solid #fff;
+}
+
+.game-over-modal .modal-content span {
+  display: block;
+  text-align: center;
+  font-size: 14px;
+  margin-top: 15px;
+}
+
+.disclaimer {
+  text-align: center;
+  padding: 0 20px;
+  font-size: 18px;
+  display: block;
+}
+
+@media screen and (min-width: 768px) {
+  .disclaimer {
+    display: none;
+  }
+}
+/*# sourceMappingURL=main.css.map */
